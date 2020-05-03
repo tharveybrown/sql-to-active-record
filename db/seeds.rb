@@ -8,11 +8,10 @@
 end
 
 
-#Services Table
+#Drivers Table
 10.times do 
   Driver.create({
-     company: Faker::Company.name,
-     address: Faker::Address.full_address,
+     name: Faker::FunnyName.three_word_name,
      rating: 10
   })
 end
@@ -36,15 +35,6 @@ end#Users table
 end
 
 
-#Services Table
-10.times do 
-  Service.create({
-     company: Faker::Company.name,
-     address: Faker::Address.full_address,
-     rating: 10,
-     service_type: Faker::Company.profession
-  })
-end
 
 #Rides Table
 
