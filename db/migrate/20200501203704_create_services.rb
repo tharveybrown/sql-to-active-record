@@ -1,8 +1,8 @@
 class CreateServices < ActiveRecord::Migration[5.2]
   def change
-    create_table(:services) do |t|
-      t.string :company
-      t.string :address
+    create_table(:drivers) do |t|
+      t.string :name
+      t.float :rating
       t.integer :rating
       t.string :service_type
     end

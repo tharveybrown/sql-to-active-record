@@ -10,11 +10,10 @@ end
 
 #Services Table
 10.times do 
-  Service.create({
+  Driver.create({
      company: Faker::Company.name,
      address: Faker::Address.full_address,
-     rating: 10,
-     service_type: Faker::Company.profession
+     rating: 10
   })
 end
 
