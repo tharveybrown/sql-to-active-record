@@ -16,9 +16,6 @@ user = User.find_by_id(10)
 user.drivers.all
 ```
 
-
-
-
 ---
 
 If working off without-active-record, you'll need to do a few things manually. First go into the ruby console to access your database by running `rake console`. Next, create your tables:
