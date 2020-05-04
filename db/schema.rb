@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_05_03_234017) do
 
   create_table "rides", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "service_id"
+    t.integer "driver_id"
     t.float "cost"
     t.float "distance"
   end
