@@ -1,10 +1,10 @@
 class Driver 
-  attr_accessor :user_id, :driver_id, :distance, :cost, :id
+  attr_accessor :rating, :id, :name
     
   def initialize(driver, id=nil)
-    @name = driver["name"]
-    @rating = driver["rating"]
-    @id = driver["id"]
+    @name = driver[:name]
+    @rating = driver[:rating]
+    @id = driver[:id]
   end
 
   def self.create_table
@@ -38,4 +38,21 @@ class Driver
     driver = CONN.execute("SELECT * FROM artists WHERE id = ?", id)
     self.new(driver[0])
   end
+    
+  def update
+    sql = <<-SQL
+      UPDATE drivers
+      SET name = ?, rating = ?
+      WHERE id = ?
+    SQL
+    CONN.execute(sql, self.name, self.rating, self.id)
+  end
+
+  def self.all
+    drivers = CONN.execute("SELECT * FROM drivers")
+    drivers.each do |driver|
+      Driver.new(driver)
+    end
+  end 
+
 end

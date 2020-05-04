@@ -9,4 +9,5 @@ gem 'pry'
 gem 'sqlite3'
 gem 'require_all'
 gem 'rake'
+gem 'faker'
 

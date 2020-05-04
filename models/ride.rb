@@ -42,4 +42,11 @@ class Ride
     ride = CONN.execute("SELECT * FROM artists WHERE id = ?", id)
     self.new(ride[0])
   end
+    
+  def self.all
+    rides = CONN.execute("SELECT * FROM rides")
+    rides.each do |ride|
+      Ride.new(ride)
+    end
+  end 
 end

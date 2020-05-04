@@ -2,10 +2,10 @@ class User
   attr_accessor :name, :address, :rating, :id
   
   def initialize(user, id=nil)
-    @name = user["name"]
-    @address = user["address"]
-    @rating = user["rating"]
-    @id = user["id"]
+    @name = user[:name]
+    @address = user[:address]
+    @rating = user[:rating]
+    @id = user[:id]
   end
 
   def self.create_table
@@ -40,4 +40,22 @@ class User
     user = CONN.execute("SELECT * FROM artists WHERE id = ?", id)
     self.new(user[0])
   end
+
+  def update
+    sql = <<-SQL
+      UPDATE users
+      SET name = ?, address = ?, rating = ?
+      WHERE id = ?
+    SQL
+    CONN.execute(sql, self.name, self.address, self.rating, self.id)
+  end
+
+
+  def self.all
+    users = CONN.execute("SELECT * FROM users")
+    
+    users.each do |user|
+      User.new(user)
+    end
+  end 
 end
