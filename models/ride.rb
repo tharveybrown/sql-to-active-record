@@ -42,6 +42,10 @@ class Ride
     ride = CONN.execute("SELECT * FROM artists WHERE id = ?", id)
     self.new(ride[0])
   end
+
+  def self.delete_table
+    CONN.execute("DROP TABLE rides")
+  end
     
   def self.all
     rides = CONN.execute("SELECT * FROM rides")

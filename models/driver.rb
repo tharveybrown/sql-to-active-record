@@ -48,6 +48,10 @@ class Driver
     CONN.execute(sql, self.name, self.rating, self.id)
   end
 
+  def self.delete_table
+    CONN.execute("DROP TABLE drivers")
+  end
+
   def self.all
     drivers = CONN.execute("SELECT * FROM drivers")
     drivers.each do |driver|

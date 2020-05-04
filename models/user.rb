@@ -57,5 +57,10 @@ class User
     users.each do |user|
       User.new(user)
     end
-  end 
+  end
+   
+  def self.delete_table
+    CONN.execute("DROP TABLE users")
+  end
+
 end
