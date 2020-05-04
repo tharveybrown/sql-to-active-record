@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_03_234017) do
+ActiveRecord::Schema.define(version: 2020_05_04_200425) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2020_05_03_234017) do
     t.integer "driver_id"
     t.float "cost"
     t.float "distance"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "company"
+    t.string "address"
+    t.integer "rating"
+    t.string "service_type"
   end
 
   create_table "users", force: :cascade do |t|

@@ -10,7 +10,14 @@ If working off master, you'll need to create your migrations.
 2. run `rake db:create_migration NAME=drivers`
 3. run `rake db:create_migration NAME=rides`
 
-Next, generate some seed data with `rake db:seed`. Finally, run `rake console` to access your database and mess around with Active Record. Try typing `User.all` to view all the users in the users table. 
+Next, generate some seed data with `rake db:seed`. Finally, run `rake console` to access your database and mess around with Active Record. Try typing `User.all` to view all the users in the users table. To view all drivers of a specific user, try:
+```ruby
+user = User.find_by_id(10)
+user.drivers.all
+```
+
+
+
 
 ---
 
